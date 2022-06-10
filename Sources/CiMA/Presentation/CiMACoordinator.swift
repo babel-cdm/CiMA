@@ -14,4 +14,6 @@ public protocol CiMACoordinatorProtocol {}
 
 // MARK: CiMACoordinator
 
-open class CiMACoordinator: CiMACoordinatorProtocol, ObservableObject, Identifiable {}
+open class CiMACoordinator: CiMACoordinatorProtocol, ObservableObject, Identifiable {
+    public init() {}
+}

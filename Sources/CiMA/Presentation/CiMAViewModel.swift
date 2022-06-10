@@ -32,19 +32,19 @@ open class CiMAViewModel<Coordinator>: ViewModelDependencies, LifecycleViewProto
 
     // MARK: Init
     
-    init(coordinator: CiMACoordinatorProtocol) {
+    public init(coordinator: CiMACoordinatorProtocol) {
         self.coordinator = coordinator
     }
     
     // MARK: ViewModelDependencies protocol
     
-    public func getCoordinator() -> Coordinator? {
+    open func getCoordinator() -> Coordinator? {
         return coordinator as? Coordinator
     }
     
     // MARK: LifecycleViewProtocol protocol
     
-    func onAppear() {}
+    open func onAppear() {}
     
-    func onDisappear() {}
+    open func onDisappear() {}
 }
