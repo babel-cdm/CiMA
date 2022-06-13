@@ -40,10 +40,15 @@ public struct CiMAView: ViewModifier {
                 guard let viewModel = viewModel as? LifecycleViewProtocol else { return }
                 viewModel.onAppear()
             })
-            .onDisappear(perform: {
-                guard let viewModel = viewModel as? LifecycleViewProtocol else { return }
-                viewModel.onDisappear()
-            })
+        .onDisappear(perform: {
+            guard let viewModel = viewModel as? LifecycleViewProtocol else { return }
+            viewModel.onDisappear()
+        })
+        .onTapGesture {
+            //Hide keyboard
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+
     }
     
     // MARK: - Private functions
