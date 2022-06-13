@@ -21,19 +21,24 @@ protocol LifecycleViewProtocol: AnyObject {
     func onDisappear()
 }
 
+open class CiMALoadable: ObservableObject {
+    @Published var isLoading: Bool = false
+}
+
 // MARK: CiMAViewModel
 
-open class CiMAViewModel<Coordinator>: ViewModelDependencies, LifecycleViewProtocol, ObservableObject {
-    
+open class CiMAViewModel<Coordinator>: CiMALoadable, ViewModelDependencies, LifecycleViewProtocol {
+
     // MARK: Properties
     
     private var cancellableSet = Set<AnyCancellable>()
     private var coordinator: CiMACoordinatorProtocol?
-
+    
     // MARK: Init
     
     public init(coordinator: CiMACoordinatorProtocol) {
         self.coordinator = coordinator
+        super.init()
     }
     
     // MARK: ViewModelDependencies protocol
@@ -47,4 +52,14 @@ open class CiMAViewModel<Coordinator>: ViewModelDependencies, LifecycleViewProto
     open func onAppear() {}
     
     open func onDisappear() {}
+    
+    // MARK: - Loading view
+    
+    public func showLoading() {
+        isLoading = true
+    }
+    
+    public func hideLoading() {
+        isLoading = false
+    }
 }

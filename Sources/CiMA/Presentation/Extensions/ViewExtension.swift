@@ -12,8 +12,10 @@ extension View {
     
     // MARK: - CiMAView
     
-    public func isCiMAView(_ viewModel: Any) -> some View {
-        modifier(CiMAView(viewModel: viewModel))
+    public func isCiMAView(_ viewModel: Any, with loadingView: AnyView? = nil) -> some View {
+        return modifier(CiMAView(viewModel: viewModel,
+                                 loadingViewModel: viewModel as! CiMALoadable,
+                                 customLoadingView: loadingView))
     }
     
     // MARK: View navigation
