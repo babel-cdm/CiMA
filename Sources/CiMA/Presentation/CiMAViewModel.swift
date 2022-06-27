@@ -31,7 +31,8 @@ open class CiMAViewModel<Coordinator>: CiMALoadable, ViewModelDependencies, Life
 
     // MARK: Properties
     
-    private var cancellableSet = Set<AnyCancellable>()
+    open var cancellableSet = Set<AnyCancellable>()
+    private var isLoadingCount = Int.zero
     private var coordinator: CiMACoordinatorProtocol?
     
     // MARK: Init
@@ -56,10 +57,15 @@ open class CiMAViewModel<Coordinator>: CiMALoadable, ViewModelDependencies, Life
     // MARK: - Loading view
     
     public func showLoading() {
-        isLoading = true
+        handleLoading(+=)
     }
     
     public func hideLoading() {
-        isLoading = false
+        handleLoading(-=)
+    }
+    
+    private func handleLoading(_ operation: ((_ lhs: inout Int, _ rhs: Int) -> Void)) {
+        operation(&isLoadingCount, 1)
+        isLoading = isLoadingCount > .zero
     }
 }
