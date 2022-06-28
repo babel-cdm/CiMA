@@ -69,6 +69,29 @@ extension View {
         )
     }
     
+    /**
+     This function hides the keyboard.
+     */
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    /**
+     This function get the dimensions of the device. You can use in a view `.getRect().height` or `.getRect().width` to know the size of the screen.
+     
+     - Parameters:
+     - input: None.
+     
+     - Returns: It returns an object of type `CGRect`.
+    */
+    public func getRect() -> CGRect {
+        return UIScreen.main.bounds
+    }
+    
+    func onLoad(perform action: (() -> Void)? = nil) -> some View {
+          modifier(CiMAViewDidLoadModifier(perform: action))
+    }
+    
     // MARK: Conditions
     
     public func `if`<Content: View>(_ conditional: Bool, content: (Self) -> Content) -> some View {
@@ -79,15 +102,4 @@ extension View {
         }
     }
     
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-    
-    func getRect() -> CGRect {
-        return UIScreen.main.bounds
-    }
-    
-    func onLoad(perform action: (() -> Void)? = nil) -> some View {
-          modifier(ViewDidLoadModifier(perform: action))
-      }
 }

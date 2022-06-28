@@ -1,11 +1,13 @@
 //
-//  SwiftUIView.swift
+//  CiMAViewDidLoadModifier.swift
 //  
 //
 //  Created by Andres Heras Barrueco on 28/6/22.
 //
 
-struct ViewDidLoadModifier: ViewModifier {
+import SwiftUI
+
+struct CiMAViewDidLoadModifier: ViewModifier {
 
     @State private var didLoad = false
     private let action: (() -> Void)?

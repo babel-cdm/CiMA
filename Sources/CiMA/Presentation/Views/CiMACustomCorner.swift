@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  CiMACustomCorner.swift
 //  
 //
 //  Created by Andres Heras Barrueco on 28/6/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomCorner: Shape {
+struct CiMACustomCorner: Shape {
     
     var corners: UIRectCorner
     var radius: CGFloat

@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  CiMAChildSizeReader.swift
 //  
 //
 //  Created by Andres Heras Barrueco on 28/6/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChildSizeReader<Content: View>: View {
+struct CiMAChildSizeReader<Content: View>: View {
 
     @Binding var size: CGSize
     let content: () -> Content
@@ -17,17 +17,17 @@ struct ChildSizeReader<Content: View>: View {
                 .background(
                     GeometryReader { proxy in
                         Color.clear
-                            .preference(key: SizePreferenceKey.self, value: proxy.size)
+                            .preference(key: CiMASizePreferenceKey.self, value: proxy.size)
                     }
                 )
         }
-        .onPreferenceChange(SizePreferenceKey.self) { preferences in
+        .onPreferenceChange(CiMASizePreferenceKey.self) { preferences in
             self.size = preferences
         }
     }
 }
 
-struct SizePreferenceKey: PreferenceKey {
+struct CiMASizePreferenceKey: PreferenceKey {
     typealias Value = CGSize
     static var defaultValue: Value = .zero
 
