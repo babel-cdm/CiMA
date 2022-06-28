@@ -86,4 +86,8 @@ extension View {
     func getRect() -> CGRect {
         return UIScreen.main.bounds
     }
+    
+    func onLoad(perform action: (() -> Void)? = nil) -> some View {
+          modifier(ViewDidLoadModifier(perform: action))
+      }
 }
