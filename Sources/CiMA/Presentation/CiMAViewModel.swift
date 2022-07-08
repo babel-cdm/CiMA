@@ -19,6 +19,7 @@ private protocol ViewModelDependencies: AnyObject {
 protocol LifecycleViewProtocol: AnyObject {
     func onAppear()
     func onDisappear()
+    func onLoad()
 }
 
 open class CiMALoadable: ObservableObject {
@@ -53,6 +54,8 @@ open class CiMAViewModel<Coordinator>: CiMALoadable, ViewModelDependencies, Life
     open func onAppear() {}
     
     open func onDisappear() {}
+    
+    open func onLoad() {}
     
     // MARK: - Loading view
     
