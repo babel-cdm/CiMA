@@ -37,8 +37,8 @@ public struct CiMAView: ViewModifier {
             }
         }
         .onAppear(perform: {
-                guard let viewModel = viewModel as? LifecycleViewProtocol else { return }
-                viewModel.onAppear()
+            guard let viewModel = viewModel as? LifecycleViewProtocol else { return }
+            viewModel.onAppear()
             })
         .onDisappear(perform: {
             guard let viewModel = viewModel as? LifecycleViewProtocol else { return }
