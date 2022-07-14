@@ -33,7 +33,7 @@ Once you have your Swift package set up, adding CiMA as a dependency is as easy 
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/babel-cdm/CiMA.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/babel-cdm/CiMA.git", from: "1.0.0")
 ]
 ```
 
