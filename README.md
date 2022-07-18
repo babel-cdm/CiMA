@@ -4,7 +4,7 @@
 
 This way you can create by a very easy and fast way robust and maintenable apps due to **CiMA** support, it handles lots of classes that helps the developer to develop new features respecting the MVVM-C architecture.
 
-You can see the documentation [here](https://www.google.es).
+You can see the documentation [here](https://github.com/babel-cdm/CiMA/wiki).
 
 ## Requirements
 
@@ -19,16 +19,24 @@ You can see the documentation [here](https://www.google.es).
 
 ### Cocoapods
 
-[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate CiMA into your Xcode project using CocoaPods, specify it in your `Podfile `:
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate CiMA into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```
 pod 'CiMA', '1.0.0'
 ```
 
-### SwiftPackageManager
+### Swift Package Manager
 
-Also CiMA could be integrated by SwiftPackageManager.
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
+
+Once you have your Swift package set up, adding CiMA as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/babel-cdm/CiMA.git", from: "1.0.0")
+]
+```
 
 ## License
 
-CiMA-Architecture is released under the MIT license. See [LICENSE](https://www.google.es) for details.
+CiMA-Architecture is released under the MIT license. See [LICENSE](LICENSE) for details.
