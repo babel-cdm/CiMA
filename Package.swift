@@ -6,10 +6,7 @@ import PackageDescription
 let package = Package(
     name: "CiMA",
     platforms: [
-        .macOS(.v10_15),
-        .iOS(.v14),
-        .watchOS(.v6),
-        .tvOS(.v13)
+        .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
