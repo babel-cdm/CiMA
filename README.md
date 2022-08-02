@@ -8,10 +8,7 @@ You can see the documentation [here](https://github.com/babel-cdm/CiMA/wiki).
 
 ## Requirements
 
-* macOS v10.15
 * iOS v14.0
-* watchOS 6.0
-* tvOS 1.0
 * Xcode 13.0
 * Swift 5.5+
 
