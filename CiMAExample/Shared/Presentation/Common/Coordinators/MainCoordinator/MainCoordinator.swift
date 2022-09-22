@@ -30,7 +30,7 @@ public class MainCoordinator: BaseCoordinator, MainCoordinatorProtocol {
     }
     
     public func navigateToForm(delegate: FormDelegate) {
-        formViewModel = DependencyInjector.shared.getFormViewModel(coordinator: self,
+        formViewModel = DependencyInjector.shared.getFormViewModel(coordiantor: self,
                                                                    delegate: delegate)
         formIsActive = true
     }

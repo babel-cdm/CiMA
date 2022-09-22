@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD12152328782459007672B7 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD12152228782459007672B7 /* DependencyInjector.swift */; };
+		C399A68F28DCA724000A9F73 /* CiMA in Frameworks */ = {isa = PBXBuildFile; productRef = C399A68E28DCA724000A9F73 /* CiMA */; };
+		C399A69628DCABB2000A9F73 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C399A69428DCABB2000A9F73 /* DependencyInjector.swift */; };
 		FD121527287824E6007672B7 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD121526287824E6007672B7 /* BaseCoordinator.swift */; };
 		FD12152928782517007672B7 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD12152828782517007672B7 /* MainCoordinator.swift */; };
 		FD12152B28782527007672B7 /* MainCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD12152A28782527007672B7 /* MainCoordinatorView.swift */; };
 		FD12152D287825E4007672B7 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD12152C287825E4007672B7 /* BaseViewModel.swift */; };
 		FD12153128782662007672B7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD12153028782662007672B7 /* MainView.swift */; };
 		FD121533287826DA007672B7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD121532287826DA007672B7 /* MainViewModel.swift */; };
-		FD6744912878286700C5068E /* CiMA in Frameworks */ = {isa = PBXBuildFile; productRef = FD6744902878286700C5068E /* CiMA */; };
 		FD67449528782DDD00C5068E /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD67449428782DDD00C5068E /* FormView.swift */; };
 		FD67449728782DE600C5068E /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD67449628782DE600C5068E /* FormViewModel.swift */; };
 		FD67449A287831D400C5068E /* PokemonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD674499287831D400C5068E /* PokemonListView.swift */; };
@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FD12152228782459007672B7 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		C399A69428DCABB2000A9F73 /* DependencyInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		FD121526287824E6007672B7 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		FD12152828782517007672B7 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		FD12152A28782527007672B7 /* MainCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorView.swift; sourceTree = "<group>"; };
@@ -56,13 +56,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD6744912878286700C5068E /* CiMA in Frameworks */,
+				C399A68F28DCA724000A9F73 /* CiMA in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C399A69328DCABB2000A9F73 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				C399A69428DCABB2000A9F73 /* DependencyInjector.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
 		FD12151A287823D7007672B7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,20 +102,12 @@
 		FD12151D2878241C007672B7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C399A69328DCABB2000A9F73 /* Dependencies */,
 				FD6744922878289100C5068E /* Application */,
-				FD12151E28782422007672B7 /* Dependencies */,
 				FD12151F28782428007672B7 /* Coordinators */,
 				FD1215212878243A007672B7 /* Base */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		FD12151E28782422007672B7 /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				FD12152228782459007672B7 /* DependencyInjector.swift */,
-			);
-			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		FD12151F28782428007672B7 /* Coordinators */ = {
@@ -290,7 +290,7 @@
 			);
 			name = "CiMAExample (iOS)";
 			packageProductDependencies = (
-				FD6744902878286700C5068E /* CiMA */,
+				C399A68E28DCA724000A9F73 /* CiMA */,
 			);
 			productName = "CiMAExample (iOS)";
 			productReference = FD7BAF712878216800515646 /* CiMAExample.app */;
@@ -348,7 +348,6 @@
 				FD6744A428783C7400C5068E /* PokemonListUseCase.swift in Sources */,
 				FD12153128782662007672B7 /* MainView.swift in Sources */,
 				FD67449528782DDD00C5068E /* FormView.swift in Sources */,
-				FD12152328782459007672B7 /* DependencyInjector.swift in Sources */,
 				FD6744B028784A3000C5068E /* PokemonListDataModel.swift in Sources */,
 				FD67449A287831D400C5068E /* PokemonListView.swift in Sources */,
 				FD67449C287831DE00C5068E /* PokemonListViewModel.swift in Sources */,
@@ -361,6 +360,7 @@
 				FD67449728782DE600C5068E /* FormViewModel.swift in Sources */,
 				FD12152928782517007672B7 /* MainCoordinator.swift in Sources */,
 				FD121527287824E6007672B7 /* BaseCoordinator.swift in Sources */,
+				C399A69628DCABB2000A9F73 /* DependencyInjector.swift in Sources */,
 				FD121533287826DA007672B7 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +484,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -513,6 +514,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -560,7 +562,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FD6744902878286700C5068E /* CiMA */ = {
+		C399A68E28DCA724000A9F73 /* CiMA */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CiMA;
 		};

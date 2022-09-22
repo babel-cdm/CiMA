@@ -39,7 +39,7 @@ final class FormViewModel: BaseViewModel<MainCoordinatorProtocol> {
 extension FormViewModel {
     static var sample: FormViewModel {
         let coordinator = MainCoordinator.sample
-        let viewModel = DependencyInjector.shared.getFormViewModel(coordinator: coordinator,
+        let viewModel = DependencyInjector.shared.getFormViewModel(coordiantor: coordinator,
                                                                    delegate: nil)
         return viewModel
     }
