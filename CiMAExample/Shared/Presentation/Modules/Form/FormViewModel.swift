@@ -14,7 +14,6 @@ public protocol FormDelegate: AnyObject {
 final class FormViewModel: BaseViewModel<MainCoordinatorProtocol> {
     
     //MARK: - Properties
-    
     @Published var formValue: String = ""
     private weak var delegate: FormDelegate?
     
@@ -39,7 +38,7 @@ final class FormViewModel: BaseViewModel<MainCoordinatorProtocol> {
 extension FormViewModel {
     static var sample: FormViewModel {
         let coordinator = MainCoordinator.sample
-        let viewModel = DependencyInjector.shared.getFormViewModel(coordiantor: coordinator,
+        let viewModel = DependencyInjector.shared.getFormViewModel(coordinator: coordinator,
                                                                    delegate: nil)
         return viewModel
     }

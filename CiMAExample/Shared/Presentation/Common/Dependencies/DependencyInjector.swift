@@ -10,16 +10,16 @@ import Foundation
 final class DependencyInjector {
     static let shared = DependencyInjector()
     
-    func getMainViewModel( coordinator: MainCoordinator ) -> MainViewModel {
+    func getMainViewModel(coordinator: MainCoordinator) -> MainViewModel {
         .init(coordinator: coordinator)
     }
     
-    func getPokemonListViewModel( coordinator: MainCoordinator ) -> PokemonListViewModel {
-        return PokemonListViewModel(coordinator: coordinator, pokemonListUseCase: getPokemonListUseCase())
+    func getPokemonListViewModel( coordinator: MainCoordinator, isCompletionRequestSelected: Bool) -> PokemonListViewModel {
+        return PokemonListViewModel(coordinator: coordinator, pokemonListUseCase: getPokemonListUseCase(), isCompletionRequestSelected: isCompletionRequestSelected)
     }
     
-    func getFormViewModel(coordiantor: MainCoordinator, delegate: FormDelegate? = nil) -> FormViewModel{
-        return FormViewModel(coordinator: coordiantor, delegate: delegate)
+    func getFormViewModel(coordinator: MainCoordinator, delegate: FormDelegate? = nil) -> FormViewModel{
+        return FormViewModel(coordinator: coordinator, delegate: delegate)
     }
     
     func getPokemonListUseCase() -> PokemonListUseCase {

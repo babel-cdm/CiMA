@@ -16,8 +16,13 @@ final class PokemonListUseCase: CiMAUseCase<Void, [PokemonDomainModel]> {
         self.urlSessionRepository = urlSessionRepository
         super.init()
     }
-
+    
     public override func handle(input: Void? = nil) async throws -> [PokemonDomainModel]? {
         try await urlSessionRepository.getPokemonList()
     }
+    
+    public override func handle(input: Void? = nil) -> CiMAObservable<[PokemonDomainModel]> {
+       return urlSessionRepository.getPokemonListCombine()
+    }
+
 }

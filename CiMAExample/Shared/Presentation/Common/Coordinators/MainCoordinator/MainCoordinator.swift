@@ -2,15 +2,13 @@
 //  MainCoordinator.swift
 //  CiMAExample (iOS)
 //
-//  Created by alvaro.grimal.local on 8/7/22.
-//
 
 import Foundation
 
 public protocol MainCoordinatorProtocol: BaseCoordinatorProtocol {
     func navigateToForm(delegate: FormDelegate)
     func popForm()
-    func navigateToPokemon()
+    func navigateToPokemon(isCompletionRequestSelected: Bool)
 }
 
 public class MainCoordinator: BaseCoordinator, MainCoordinatorProtocol {
@@ -30,7 +28,7 @@ public class MainCoordinator: BaseCoordinator, MainCoordinatorProtocol {
     }
     
     public func navigateToForm(delegate: FormDelegate) {
-        formViewModel = DependencyInjector.shared.getFormViewModel(coordiantor: self,
+        formViewModel = DependencyInjector.shared.getFormViewModel(coordinator: self,
                                                                    delegate: delegate)
         formIsActive = true
     }
@@ -39,8 +37,8 @@ public class MainCoordinator: BaseCoordinator, MainCoordinatorProtocol {
         formIsActive = false
     }
     
-    public func navigateToPokemon() {
-        pokemonViewModel = DependencyInjector.shared.getPokemonListViewModel(coordinator: self)
+    public func navigateToPokemon(isCompletionRequestSelected: Bool) {
+        pokemonViewModel = DependencyInjector.shared.getPokemonListViewModel(coordinator: self, isCompletionRequestSelected: isCompletionRequestSelected)
         pokemonIsActive = true
     }
 }

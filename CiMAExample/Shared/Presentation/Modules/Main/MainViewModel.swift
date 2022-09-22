@@ -13,6 +13,7 @@ final class MainViewModel: BaseViewModel<MainCoordinatorProtocol>,
     //MARK: - Properties
     
     @Published var formValue: String = ""
+    @Published var useCompletionIsSelected: Bool = false
     
     //MARK: - Functions
     
@@ -21,7 +22,7 @@ final class MainViewModel: BaseViewModel<MainCoordinatorProtocol>,
     }
 
     func apiTestTapped() {
-        getCoordinator()?.navigateToPokemon()
+        getCoordinator()?.navigateToPokemon(isCompletionRequestSelected: useCompletionIsSelected)
     }
     
     //MARK: - FormDelegate

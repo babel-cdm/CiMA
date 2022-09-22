@@ -7,6 +7,7 @@
 
 import Foundation
 import CiMA
+import Combine
 
 final class PokemonListViewModel: BaseViewModel<MainCoordinatorProtocol> {
     
@@ -14,11 +15,15 @@ final class PokemonListViewModel: BaseViewModel<MainCoordinatorProtocol> {
     
     @Published var pokemonList: [String] = []
     private let pokemonListUseCase: PokemonListUseCase
+    private let isCompletionRequestSelected: Bool
+    var subscriptions = [AnyCancellable]()
     
     // MARK: - Functions
     
     init(coordinator: MainCoordinatorProtocol,
-         pokemonListUseCase: PokemonListUseCase) {
+         pokemonListUseCase: PokemonListUseCase,
+         isCompletionRequestSelected: Bool) {
+        self.isCompletionRequestSelected = isCompletionRequestSelected
         self.pokemonListUseCase = pokemonListUseCase
         super.init(coordinator: coordinator)
     }
@@ -27,19 +32,33 @@ final class PokemonListViewModel: BaseViewModel<MainCoordinatorProtocol> {
     
     override func onAppear() {
         super.onAppear()
-        Task {
-            await getPokemonList()
+        if isCompletionRequestSelected {
+            getPokemonListCompletion()
+        } else {
+            Task {
+                await getPokemonListAsync()
+            }
         }
     }
 
     @MainActor
-    private func getPokemonList() async {
+    private func getPokemonListAsync() async {
         do {
             let pokemons = try await pokemonListUseCase.execute()
             pokemonList = pokemons?.map({ $0.name }) ?? []
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    private func getPokemonListCompletion(){
+        
+        pokemonListUseCase.execute()
+            .sink { _ in
+            } receiveValue: { pokemons in
+                self.pokemonList = pokemons.map({ $0.name }) 
+            }
+            .store(in: &subscriptions)
     }
 }
 
@@ -48,7 +67,7 @@ final class PokemonListViewModel: BaseViewModel<MainCoordinatorProtocol> {
 extension PokemonListViewModel {
     static var sample: PokemonListViewModel {
         let coordinator = MainCoordinator.sample
-        let viewModel = DependencyInjector.shared.getPokemonListViewModel(coordinator: coordinator)
+        let viewModel = DependencyInjector.shared.getPokemonListViewModel(coordinator: coordinator, isCompletionRequestSelected: false)
         return viewModel
     }
 }

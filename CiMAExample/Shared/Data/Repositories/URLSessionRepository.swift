@@ -31,4 +31,19 @@ public class URLSessionRepository: HttpRepository {
         let pokemonList = try JSONDecoder().decode(PokemonListDataModel.self, from: data)
         return pokemonList.parseToDomainModel()
     }
+    
+    public func getPokemonListCombine() -> CiMAObservable<[PokemonDomainModel]> {
+        
+        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/") else {
+            return Fail(error: NSError(domain: "URL invalid", code: 404, userInfo: nil)).eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: PokemonListDataModel.self, decoder: JSONDecoder())
+            .map { pokemonList in
+                pokemonList.parseToDomainModel()
+            }
+            .eraseToAnyPublisher()
+    }
 }
