@@ -5,8 +5,6 @@
 //  Created by alvaro.grimal.local on 8/7/22.
 //
 
-import Foundation
-
 // MARK: - PokemonListDataModel
 
 struct PokemonListDataModel: Decodable {

@@ -320,6 +320,9 @@
 				Base,
 			);
 			mainGroup = FD7BAF642878216200515646;
+			packageReferences = (
+				81C7FF4A2AD31E4000F81303 /* XCRemoteSwiftPackageReference "CiMA" */,
+			);
 			productRefGroup = FD7BAF722878216800515646 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -558,6 +561,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		81C7FF4A2AD31E4000F81303 /* XCRemoteSwiftPackageReference "CiMA" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/babel-cdm/CiMA";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		FD6744902878286700C5068E /* CiMA */ = {

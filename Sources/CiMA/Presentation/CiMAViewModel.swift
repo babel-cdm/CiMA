@@ -13,7 +13,7 @@ import SwiftUI
 
 private protocol ViewModelDependencies: AnyObject {
     associatedtype Coordinator
-    func getCoordinator() -> Coordinator?
+    var coordinator: Coordinator { get }
 }
 
 protocol LifecycleViewProtocol: AnyObject {
@@ -34,21 +34,21 @@ open class CiMAViewModel<Coordinator>: CiMALoadable, ViewModelDependencies, Life
     
     open var cancellableSet = Set<AnyCancellable>()
     private var isLoadingCount = Int.zero
-    private var coordinator: CiMACoordinatorProtocol?
-    
+    private var cimaCoordinator: CiMACoordinatorProtocol?
+
     // MARK: Init
     
     public init(coordinator: CiMACoordinatorProtocol) {
-        self.coordinator = coordinator
+        self.cimaCoordinator = coordinator
         super.init()
     }
     
     // MARK: ViewModelDependencies protocol
     
-    open func getCoordinator() -> Coordinator? {
-        return coordinator as? Coordinator
+    public var coordinator: Coordinator? {
+        cimaCoordinator as? Coordinator
     }
-    
+
     // MARK: LifecycleViewProtocol protocol
     
     open func onAppear() {}

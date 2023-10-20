@@ -11,13 +11,13 @@ import SwiftUI
 struct CiMAExampleApp: App {
 
     @StateObject var coordinator = MainCoordinator.sample
-    
+
     var body: some Scene {
         WindowGroup {
             initialView()
         }
     }
-    
+
     private func initialView() -> some View {
         return MainCoordinatorView(coordinator: coordinator)
     }

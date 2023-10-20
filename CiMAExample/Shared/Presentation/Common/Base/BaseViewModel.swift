@@ -7,5 +7,8 @@
 
 import Foundation
 import CiMA
+import Combine
 
-class BaseViewModel<Coordinator>: CiMAViewModel<Coordinator> {}
+class BaseViewModel<Coordinator>: CiMAViewModel<Coordinator> {
+    internal var subscriptions = [AnyCancellable]()
+}
