@@ -12,8 +12,7 @@ public typealias CiMAObservable<T> = AnyPublisher<T, Error>
 
 extension Publisher {
     public func asObservable() -> CiMAObservable<Output> {
-        self
-            .mapError { $0 }
+        mapError { $0 }
             .eraseToAnyPublisher()
     }
     
@@ -24,10 +23,16 @@ extension Publisher {
     }
     
     public static func empty() -> CiMAObservable<Output> {
-        return Empty().eraseToAnyPublisher()
+        Empty()
+            .eraseToAnyPublisher()
     }
-    
+
+    public static func failure(_ error: Error) -> CiMAObservable<Output> {
+        Fail<Output, Error>(error: error)
+            .eraseToAnyPublisher()
+    }
+
     public func sink() -> AnyCancellable {
-        return self.sink(receiveCompletion: { _ in }, receiveValue: { _ in })
+        sink(receiveCompletion: { _ in }, receiveValue: { _ in })
     }
 }

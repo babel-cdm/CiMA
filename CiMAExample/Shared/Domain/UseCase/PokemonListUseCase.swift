@@ -21,7 +21,7 @@ final class PokemonListUseCase: CiMAUseCase<Void, [PokemonDomainModel]> {
     }
 
     public override func handle(input: Void? = nil) -> CiMAObservable<[PokemonDomainModel]> {
-       urlSessionRepository.getPokemonListCombine()
+       urlSessionRepository.getPokemonList()
     }
 
 }

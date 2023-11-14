@@ -17,11 +17,11 @@ final class MainViewModel: BaseViewModel<MainCoordinatorProtocol>,
     //MARK: - Functions
     
     func flowTestTapped() {
-        getCoordinator()?.navigateToForm(delegate: self)
+        coordinator?.navigateToForm(delegate: self)
     }
 
     func apiTestTapped() {
-        getCoordinator()?.navigateToPokemon()
+        coordinator?.navigateToPokemon()
     }
     
     //MARK: - FormDelegate

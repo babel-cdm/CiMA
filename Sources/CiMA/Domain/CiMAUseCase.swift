@@ -57,18 +57,15 @@ open class CiMAUseCase<Input, Output> {
     
     /**
      Main method of executing the useCase.
-     This method executes the `handle(input: Input? = nil) async throws -> Output?` which use async/await.
+     This method executes the `handle(input: Input) async throws -> Output` which use async/await.
      
      - Parameters:
      - input: The only parameter where it will have all the necessary properties to execute the useCase.
      
      - Returns: It returns an object of type `Output`.
      */
-    public func execute(_ input: Input? = nil) async throws -> Output? {
-        guard let handle = try await handle(input: input) else {
-            return nil
-        }
-        return handle
+    public func execute(_ input: Input) async throws -> Output {
+        try await handle(input: input)
     }
     
     /**
@@ -89,5 +86,19 @@ open class CiMAUseCase<Input, Output> {
      
      - Returns: It returns an object of type `Output`.
      */
-    open func handle(input: Input? = nil) async throws -> Output? { nil }
+    open func handle(input: Input) async throws -> Output {
+        throw NSError(domain: "Not implemented. Override it in subclass.", code: -1000)
+    }
+}
+
+extension CiMAUseCase where Input == Void {
+    /**
+     Main method of executing the useCase.
+     This method executes the `handle() async throws -> Output` which use async/await.
+     
+     - Returns: It returns an object of type `Output`.
+     */
+    public func execute() async throws -> Output {
+        try await handle(input: ())
+    }
 }

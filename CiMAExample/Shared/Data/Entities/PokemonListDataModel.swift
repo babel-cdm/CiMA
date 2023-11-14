@@ -22,7 +22,7 @@ struct PokemonDataModel: Decodable {
 // MARK: - Extension PokemonListDataModel
 
 extension PokemonListDataModel {
-    func parseToDomainModel() -> [PokemonDomainModel] {
+    func domainModel() -> [PokemonDomainModel] {
         results?.map({ .init(name: $0.name ?? "") }) ?? []
     }
 }

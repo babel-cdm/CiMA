@@ -30,7 +30,7 @@ final class FormViewModel: BaseViewModel<MainCoordinatorProtocol> {
     
     func acceptTapped() {
         delegate?.updateMain(with: formValue)
-        getCoordinator()?.popForm()
+        coordinator?.popForm()
     }
 }
 
