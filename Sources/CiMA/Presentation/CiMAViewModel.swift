@@ -68,7 +68,10 @@ open class CiMAViewModel<Coordinator>: CiMALoadable, ViewModelDependencies, Life
     }
     
     private func handleLoading(_ operation: ((_ lhs: inout Int, _ rhs: Int) -> Void)) {
+        //TODO: Refactorizar gestion del count
         operation(&isLoadingCount, 1)
+        isLoadingCount = max(isLoadingCount, .zero)
+
         isLoading = isLoadingCount > .zero
     }
 }
