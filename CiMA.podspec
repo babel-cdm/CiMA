@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |spec|
 spec.name         = "CiMA"
-spec.version      = "1.0.0"
+spec.version      = "1.1.0-beta.1"
 spec.summary      = "CiMA lets users build awesome apps with professional architecture in minutes."
 
 
